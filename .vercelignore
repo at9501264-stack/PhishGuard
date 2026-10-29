@@ -1,0 +1,37 @@
+# Files NOT uploaded by `vercel deploy` (Hobby CLI limit: 100 MB of source files).
+# Vercel installs npm + Python dependencies and builds the frontend itself.
+# Runtime data that MUST stay: backend/ml/artifacts (models), backend/data/tranco/tranco_index.* (Tranco
+# index), deploy/seed.db (cloud demo snapshot) and deploy/feeds/*.gz (threat feeds, packed 31 MB -> ~8 MB by
+# deploy/build_cloud_seed.py and unpacked into /tmp on cold start). Run build_cloud_seed.py before deploying.
+
+# dependencies, virtualenvs, build output
+node_modules
+.venv
+venv
+/frontend/dist
+**/__pycache__
+*.pyc
+
+# big local-only data
+/backend/ml/data
+/backend/data/phishguard.db
+/backend/data/phishguard.db-*
+/backend/data/screenshots
+/backend/data/tranco/top-1m.csv
+/backend/data/feeds
+/deploy/feeds/*.building
+/deploy/*.building
+/deploy/*.copying
+
+# not used by the Vercel deployment
+/extension
+/scripts
+/docs/media
+
+# misc
+.DS_Store
+*.log
+.env
+.env.*
+.vscode
+.idea

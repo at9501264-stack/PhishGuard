@@ -1,0 +1,911 @@
+[
+  {
+    "id": "intro",
+    "title": "PhishGuard",
+    "narration": "This is PhishGuard, an AI-based phishing website detection and risk analysis system by Ayushi Tiwari, guided by Mister Vishal Gupta.",
+    "caption": "Ayushi Tiwari · Guide: Mr. Vishal Gupta · Lloyd Institute of Engineering & Technology",
+    "route": "/",
+    "actions": [
+      {
+        "do": "title_card",
+        "heading": "PhishGuard",
+        "sub": "AI-Based Phishing Website Detection and Risk Analysis System Using Machine Learning\nB.Tech Mini Project · Ayushi Tiwari · Guide: Mr. Vishal Gupta\nLloyd Institute of Engineering & Technology · AKTU"
+      },
+      {
+        "do": "wait",
+        "ms": 7500
+      }
+    ],
+    "min_seconds": 8
+  },
+  {
+    "id": "problem",
+    "title": "The problem",
+    "narration": "Phishing sites copy trusted brands to steal passwords, and many vanish before blocklists catch them. PhishGuard explains the risk of any link.",
+    "caption": "Phishing pages copy trusted brands and vanish fast; blocklists alone react too late",
+    "route": "/",
+    "actions": [
+      {
+        "do": "title_card",
+        "heading": "The problem",
+        "sub": "Phishing websites imitate trusted brands to steal passwords and card details.\nMany live only for hours, so blocklists alone react too late.\nUsers need an instant, explainable risk check for any link."
+      },
+      {
+        "do": "wait",
+        "ms": 7500
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "how-it-works",
+    "title": "How it works",
+    "narration": "Each URL becomes forty-four features for a Random Forest model, while live checks inspect DNS, who-is, SSL, content, brands and threat feeds.",
+    "caption": "URL → 44 features → Random Forest + live checks → 60% ML + 40% heuristics → risk 0–100",
+    "route": "/",
+    "actions": [
+      {
+        "do": "title_card",
+        "heading": "How PhishGuard works",
+        "sub": "URL → validation → 44 lexical features → Random Forest ML model\n+ live checks: DNS · WHOIS · SSL · HTTP & content · brand · threat feeds\nRisk score 0–100 = 60% ML + 40% heuristics (blocklist hit ≥ 90)\n→ verdict, trust score & tier, explained report"
+      },
+      {
+        "do": "wait",
+        "ms": 8500
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "overview",
+    "title": "Overview dashboard",
+    "narration": "The Overview dashboard shows total scans, detection rate and average trust score, with trends and a live scan feed.",
+    "caption": "KPIs, scan trends, verdict split and a live feed that refreshes every 5 seconds",
+    "route": "/",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Total scans"
+      },
+      {
+        "do": "highlight",
+        "text": "Total scans"
+      },
+      {
+        "do": "wait",
+        "ms": 1300
+      },
+      {
+        "do": "highlight",
+        "text": "Detection rate"
+      },
+      {
+        "do": "wait",
+        "ms": 1100
+      },
+      {
+        "do": "highlight",
+        "text": "Avg trust score"
+      },
+      {
+        "do": "wait",
+        "ms": 1100
+      },
+      {
+        "do": "scroll",
+        "to": 600,
+        "smooth": true
+      },
+      {
+        "do": "wait",
+        "ms": 900
+      },
+      {
+        "do": "highlight",
+        "text": "Live scan feed"
+      },
+      {
+        "do": "wait",
+        "ms": 1200
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "scan",
+    "title": "Deep scan a suspicious URL",
+    "narration": "Let's deep scan a fake PayPal login link. Eight stages run, from the ML prediction to DNS, who-is, SSL and reputation.",
+    "caption": "Scanning http://paypal-login-verify.secure-account.xyz/update with an 8-stage deep scan",
+    "route": "/scan",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Analyse URL"
+      },
+      {
+        "do": "type",
+        "selector": "https://example.com/login",
+        "text": "http://paypal-login-verify.secure-account.xyz/update"
+      },
+      {
+        "do": "highlight",
+        "text": "Deep scan (DNS, WHOIS, SSL, HTTP, screenshot)",
+        "self": true
+      },
+      {
+        "do": "wait",
+        "ms": 700
+      },
+      {
+        "do": "click_text",
+        "text": "Analyse URL",
+        "match": "exact"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Analysis pipeline",
+        "optional": true,
+        "timeout_ms": 4000
+      },
+      {
+        "do": "highlight",
+        "text": "Analysis pipeline",
+        "optional": true
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Risk score",
+        "timeout_ms": 45000
+      }
+    ],
+    "min_seconds": 10,
+    "note": "Deep scan is ON by default (no toggle click). The scan takes about 3 s; the app then auto-navigates to /scans/<new id> (450 ms delay). Dry run of the real pipeline on a scratch DB copy gave: phishing, risk 92, trust 8, tier Untrusted, social_engineering, PayPal via subdomain."
+  },
+  {
+    "id": "verdict",
+    "title": "Verdict: phishing",
+    "narration": "The verdict is phishing: risk ninety-two out of a hundred, trust score eight, tier Untrusted, threat type social engineering.",
+    "caption": "Risk 92/100 · Trust score 8/100 · Tier: Untrusted · Social engineering · ML 98.5%",
+    "route": "/scans/:latest",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Risk score"
+      },
+      {
+        "do": "highlight",
+        "text": "Phishing",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1400
+      },
+      {
+        "do": "highlight",
+        "text": "Risk score"
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      },
+      {
+        "do": "highlight",
+        "text": "Trust score"
+      },
+      {
+        "do": "wait",
+        "ms": 1200
+      },
+      {
+        "do": "highlight",
+        "text": "Tier: Untrusted"
+      },
+      {
+        "do": "wait",
+        "ms": 1000
+      },
+      {
+        "do": "highlight",
+        "text": "Social engineering"
+      },
+      {
+        "do": "wait",
+        "ms": 1300
+      }
+    ],
+    "min_seconds": 7,
+    "expect": {
+      "scan": ":latest",
+      "verdict": "phishing",
+      "risk_score": 92,
+      "trust_score": 8,
+      "tier": "Untrusted",
+      "threat_type": "social_engineering"
+    },
+    "note": ":latest = the scan created in scene 'scan': take the id from the current URL (/scans/<id>) after the Scan page auto-navigates; fallback = newest scan whose url is http://paypal-login-verify.secure-account.xyz/update. Do NOT use the newest scan id: the watchlist scheduler creates scans in the background. Do not reload if the path already matches. If expect.risk_score differs, update the spoken numbers (trust = 100 - risk) and the caption."
+  },
+  {
+    "id": "explain",
+    "title": "Explainable result",
+    "narration": "Every verdict is explained: an AI summary, the factors behind it, and a sixty-forty split between model and checks.",
+    "caption": "AI summary, negative and positive factors, and the 60% ML + 40% heuristics score breakdown",
+    "route": "/scans/:latest",
+    "actions": [
+      {
+        "do": "highlight",
+        "text": "AI summary"
+      },
+      {
+        "do": "wait",
+        "ms": 2300
+      },
+      {
+        "do": "highlight",
+        "text": "Negative factors"
+      },
+      {
+        "do": "wait",
+        "ms": 2300
+      },
+      {
+        "do": "highlight",
+        "text": "Score breakdown"
+      },
+      {
+        "do": "wait",
+        "ms": 2600
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "ml-brand",
+    "title": "ML Explanation & Brand",
+    "narration": "ML Explanation shows the features behind the prediction, like the long hostname, and all four models agree. Brand confirms PayPal impersonation.",
+    "caption": "Feature contributions, all 4 models agree (95–100%), PayPal impersonated via subdomain",
+    "route": "/scans/:latest",
+    "actions": [
+      {
+        "do": "scroll",
+        "to": "top",
+        "smooth": true
+      },
+      {
+        "do": "click_text",
+        "text": "ML Explanation",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Feature contributions"
+      },
+      {
+        "do": "highlight",
+        "text": "Feature contributions"
+      },
+      {
+        "do": "wait",
+        "ms": 2600
+      },
+      {
+        "do": "highlight",
+        "text": "Per-model probability"
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      },
+      {
+        "do": "click_text",
+        "text": "Brand",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Brand impersonation"
+      },
+      {
+        "do": "highlight",
+        "text": "Brand impersonation"
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      }
+    ],
+    "min_seconds": 8,
+    "note": "Per-model probabilities from the dry run: Logistic Regression 100%, Decision Tree 100%, Random Forest 98.5%, SVM 95.3%. Top contribution: Hostname length."
+  },
+  {
+    "id": "live-checks",
+    "title": "Live checks on a real phishing kit",
+    "narration": "Next, a live phishing kit on vercel dot app: who-is and DNS records, a mismatched SSL certificate, and its redirect chain.",
+    "caption": "Live kit on vercel.app: WHOIS & DNS, SSL hostname mismatch, redirect chain & headers",
+    "route": "/scans/:phishing",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Risk score"
+      },
+      {
+        "do": "wait",
+        "ms": 2400
+      },
+      {
+        "do": "click_text",
+        "text": "Domain",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "WHOIS"
+      },
+      {
+        "do": "wait",
+        "ms": 1700
+      },
+      {
+        "do": "click_text",
+        "text": "SSL",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Certificate"
+      },
+      {
+        "do": "highlight",
+        "text": "Hostname mismatch"
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      },
+      {
+        "do": "click_text",
+        "text": "HTTP",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Security headers"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      }
+    ],
+    "min_seconds": 8,
+    "expect": {
+      "scan": ":phishing",
+      "url": "http://www.indesx-mauve.vercel.app/",
+      "risk_score": 97,
+      "engine_ratio": "3/11"
+    },
+    "note": ":phishing = newest scan of http://www.indesx-mauve.vercel.app/, which is also the first item of GET /api/scans?verdict=phishing&sort=risk_score&order=desc (risk 97). The watchlist re-checks this URL, so the id changes (#70, #71, ...); all of them show the same facts. Narration in this scene and the next two is specific to this site."
+  },
+  {
+    "id": "reputation-content",
+    "title": "Reputation & content",
+    "narration": "Reputation shows three of eleven engines flagging it, including OpenPhish and Phishing Army. Content classifies it as a login page.",
+    "caption": "3 of 11 engines flag it (OpenPhish, Phishing Army, PhishGuard ML) · category: login",
+    "route": "/scans/:phishing",
+    "actions": [
+      {
+        "do": "click_text",
+        "text": "Reputation",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Detection engines"
+      },
+      {
+        "do": "highlight",
+        "text": "Detection engines"
+      },
+      {
+        "do": "wait",
+        "ms": 3600
+      },
+      {
+        "do": "click_text",
+        "text": "Content",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Page content"
+      },
+      {
+        "do": "highlight",
+        "text": "Page content"
+      },
+      {
+        "do": "wait",
+        "ms": 2200
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "resources-source-graph",
+    "title": "Resources, source & graph",
+    "narration": "Resources lists contacted domains, Source keeps the HTML, which hides code sending stolen data to Telegram, and Graph maps the infrastructure.",
+    "caption": "Contacted domains, stored HTML (Telegram exfiltration code) and the infrastructure graph",
+    "route": "/scans/:phishing",
+    "actions": [
+      {
+        "do": "click_text",
+        "text": "Resources",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Contacted domains"
+      },
+      {
+        "do": "highlight",
+        "text": "Contacted domains"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      },
+      {
+        "do": "click_text",
+        "text": "Source",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait",
+        "ms": 700
+      },
+      {
+        "do": "type",
+        "selector": "Search the page source (Enter = next, Shift+Enter = previous)",
+        "text": "telegram"
+      },
+      {
+        "do": "press",
+        "key": "Enter"
+      },
+      {
+        "do": "wait",
+        "ms": 2200
+      },
+      {
+        "do": "click_text",
+        "text": "Graph",
+        "scope": "[data-report-tabs]",
+        "match": "prefix"
+      },
+      {
+        "do": "wait",
+        "ms": 2600
+      }
+    ],
+    "min_seconds": 8,
+    "note": "Scope tab clicks to [data-report-tabs]: 'Graph' is also a sidebar link and 'Source' is a substring of 'Resources'. Stored HTML of scan #70 contains 'telegram' twice."
+  },
+  {
+    "id": "legit",
+    "title": "A legitimate site: github.com",
+    "narration": "For contrast, github dot com is legitimate: risk three, trust score ninety-seven, tier Trusted, and no engine flags it.",
+    "caption": "github.com: legitimate · risk 3/100 · trust score 97/100 · Tier: Trusted · 0/11 engines",
+    "route": "/scans/:legit",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Risk score"
+      },
+      {
+        "do": "highlight",
+        "text": "Legitimate",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      },
+      {
+        "do": "highlight",
+        "text": "Trust score"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      },
+      {
+        "do": "highlight",
+        "text": "Tier: Trusted"
+      },
+      {
+        "do": "wait",
+        "ms": 1200
+      },
+      {
+        "do": "highlight",
+        "text": "engines flagged"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      }
+    ],
+    "min_seconds": 7,
+    "expect": {
+      "scan": ":legit",
+      "url": "https://github.com",
+      "risk_score": 3,
+      "trust_score": 97,
+      "tier": "Trusted",
+      "engine_ratio": "0/11"
+    },
+    "note": ":legit = newest scan whose URL is https://github.com (currently #69)."
+  },
+  {
+    "id": "history-bulk",
+    "title": "History & bulk scanning",
+    "narration": "History keeps every scan with export and one-click pivots, like all Untrusted sites. Bulk Scan checks up to five hundred URLs.",
+    "caption": "Pivot by tier, threat type, IP, ASN or registrar · CSV/JSON export · bulk jobs of 500 URLs",
+    "route": "/history?tier=Untrusted",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Scan history"
+      },
+      {
+        "do": "highlight",
+        "text": "Untrusted"
+      },
+      {
+        "do": "wait",
+        "ms": 2000
+      },
+      {
+        "do": "scroll",
+        "to": 400,
+        "smooth": true
+      },
+      {
+        "do": "wait",
+        "ms": 1300
+      },
+      {
+        "do": "goto",
+        "path": "/bulk"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "New job"
+      },
+      {
+        "do": "type",
+        "selector": "textarea",
+        "text": "https://github.com\nhttp://paypa1-secure-login.com/verify"
+      },
+      {
+        "do": "wait",
+        "ms": 600
+      }
+    ],
+    "min_seconds": 8,
+    "note": "The first 'Untrusted' on the page is the active filter chip. Bulk: type only, do not submit."
+  },
+  {
+    "id": "analytics",
+    "title": "Analytics",
+    "narration": "Analytics shows scan trends, an activity heatmap, threat types, trust tiers and a detection funnel from scanned to phishing.",
+    "caption": "Scan trends, weekday × hour heatmap, threat types, trust tiers and the detection funnel",
+    "route": "/analytics",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Scans over time"
+      },
+      {
+        "do": "highlight",
+        "text": "Scans over time",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1300
+      },
+      {
+        "do": "highlight",
+        "text": "Activity heatmap",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      },
+      {
+        "do": "highlight",
+        "text": "Threat types",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1200
+      },
+      {
+        "do": "highlight",
+        "text": "Reputation tiers",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1100
+      },
+      {
+        "do": "highlight",
+        "text": "Detection funnel",
+        "match": "exact"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "model-lab",
+    "title": "Model Lab: why Random Forest",
+    "narration": "The Model Lab compares four classifiers on one hundred forty-six thousand URLs. Random Forest wins on F1, with eighty-six percent accuracy even on unseen domains, and an A U C of zero point nine four.",
+    "caption": "146,364 URLs · 4 models · Random Forest: accuracy 86.4%, F1 0.856, ROC-AUC 0.945",
+    "route": "/model",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Model comparison"
+      },
+      {
+        "do": "highlight",
+        "text": "Dataset"
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      },
+      {
+        "do": "highlight",
+        "text": "Model comparison"
+      },
+      {
+        "do": "wait",
+        "ms": 2200
+      },
+      {
+        "do": "highlight",
+        "text": "Model selection"
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      },
+      {
+        "do": "highlight",
+        "text": "Realistic evaluation"
+      },
+      {
+        "do": "wait",
+        "ms": 2200
+      },
+      {
+        "do": "highlight",
+        "text": "ROC curves"
+      },
+      {
+        "do": "wait",
+        "ms": 2000
+      },
+      {
+        "do": "highlight",
+        "text": "Confusion matrices"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      }
+    ],
+    "min_seconds": 12,
+    "note": "metrics.json: 146,364 URLs (73,241 phishing / 73,123 legit), 44 features. Random Forest test: accuracy 0.8638, precision 0.908, recall 0.8098, F1 0.8561, ROC-AUC 0.9449 (LR F1 0.8045, DT 0.8372, SVM 0.8329). Realistic set of 4,000 unseen-domain URLs: RF accuracy 0.864, AUC 0.9421."
+  },
+  {
+    "id": "graph-watchlist-typosquat",
+    "title": "Graph, Watchlist & Typosquat",
+    "narration": "The Relationship graph links domains by shared IP addresses and registrars. Watchlist re-checks sites automatically, and Typosquat finds live PayPal look-alikes.",
+    "caption": "Infrastructure graph, scheduled re-checks with alerts, and live look-alikes of paypal.com",
+    "route": "/graph",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Relationship graph"
+      },
+      {
+        "do": "wait",
+        "ms": 2600
+      },
+      {
+        "do": "goto",
+        "path": "/watchlist"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Monitored targets"
+      },
+      {
+        "do": "highlight",
+        "text": "Monitored targets"
+      },
+      {
+        "do": "wait",
+        "ms": 1600
+      },
+      {
+        "do": "goto",
+        "path": "/typosquat?domain=paypal.com"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Permutations by technique",
+        "timeout_ms": 30000
+      },
+      {
+        "do": "wait",
+        "ms": 1800
+      }
+    ],
+    "min_seconds": 9,
+    "note": "/typosquat?domain=paypal.com runs about 60 live DNS checks on load and can take several seconds; consider pre-warming it once before recording."
+  },
+  {
+    "id": "community-feeds",
+    "title": "Community & threat feeds",
+    "narration": "Community reports work like PhishTank, with crowd voting, and Threat Feeds holds six hundred fifty-seven thousand blocklist entries.",
+    "caption": "PhishTank-style voting (verified at +3 net votes) · 657,124 entries from 5 blocklists",
+    "route": "/community",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Community reports"
+      },
+      {
+        "do": "highlight",
+        "text": "Submit a report"
+      },
+      {
+        "do": "wait",
+        "ms": 2600
+      },
+      {
+        "do": "goto",
+        "path": "/feeds"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Entries by feed"
+      },
+      {
+        "do": "highlight",
+        "text": "Entries by feed"
+      },
+      {
+        "do": "wait",
+        "ms": 2200
+      }
+    ],
+    "min_seconds": 7,
+    "note": "657,124 = GET /api/health feeds_entries (OpenPhish, URLhaus, Phishing.Database, PhishTank, Phishing Army)."
+  },
+  {
+    "id": "alerts-activity-settings",
+    "title": "Alerts, activity log & settings",
+    "narration": "Alerts flag high-risk detections, the Activity log records every action, Settings tunes the thresholds, and a REST API exposes everything.",
+    "caption": "Alerts, a full audit trail, adjustable verdict thresholds and a documented REST API",
+    "route": "/alerts",
+    "actions": [
+      {
+        "do": "wait_for_text",
+        "text": "Alerts"
+      },
+      {
+        "do": "wait",
+        "ms": 1600
+      },
+      {
+        "do": "goto",
+        "path": "/activity"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Activity log"
+      },
+      {
+        "do": "wait",
+        "ms": 1600
+      },
+      {
+        "do": "goto",
+        "path": "/settings"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "Verdict thresholds"
+      },
+      {
+        "do": "highlight",
+        "text": "Verdict thresholds"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      },
+      {
+        "do": "goto",
+        "path": "/api-guide"
+      },
+      {
+        "do": "wait_for_text",
+        "text": "API guide"
+      },
+      {
+        "do": "wait",
+        "ms": 1500
+      }
+    ],
+    "min_seconds": 8
+  },
+  {
+    "id": "architecture",
+    "title": "Architecture",
+    "narration": "Under the hood: a React dashboard, a Fast API backend with the model and analysis engine, and S Q Lite storage, on Vercel.",
+    "caption": "React dashboard → FastAPI → ML model + analysis engine → SQLite · deployed on Vercel",
+    "route": "/",
+    "actions": [
+      {
+        "do": "title_card",
+        "heading": "Architecture",
+        "sub": "React 19 + Vite + Tailwind + Recharts dashboard\n→ FastAPI REST backend (Python)\n→ scikit-learn Random Forest + analysis engine (DNS, WHOIS/RDAP, SSL, HTTP, brand, feeds)\n→ SQLite database · deployed on Vercel"
+      },
+      {
+        "do": "wait",
+        "ms": 7500
+      }
+    ],
+    "min_seconds": 7
+  },
+  {
+    "id": "closing",
+    "title": "Thank you",
+    "narration": "PhishGuard turns any link into an explainable risk score. The live demo and code links are on screen. Thank you.",
+    "caption": "Live: phishguard-mini-project.vercel.app · Code: github.com/at9501264-stack/mini-project",
+    "route": "/",
+    "actions": [
+      {
+        "do": "title_card",
+        "heading": "Thank you",
+        "sub": "Live demo: https://phishguard-mini-project.vercel.app\nSource code: https://github.com/at9501264-stack/mini-project\nAyushi Tiwari · Guide: Mr. Vishal Gupta · Lloyd Institute of Engineering & Technology (AKTU)"
+      },
+      {
+        "do": "wait",
+        "ms": 7500
+      }
+    ],
+    "min_seconds": 8
+  }
+]

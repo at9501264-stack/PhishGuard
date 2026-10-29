@@ -1,0 +1,148 @@
+{
+  "video": "docs/media/demo.mp4",
+  "voice": "Rishi",
+  "say_rate": 220,
+  "duration_s": 164.47,
+  "scenes": [
+    {
+      "id": "intro",
+      "title": "PhishGuard",
+      "start": 0.0,
+      "end": 8.0,
+      "narration_s": 7.118
+    },
+    {
+      "id": "problem",
+      "title": "The problem",
+      "start": 8.0,
+      "end": 15.7,
+      "narration_s": 7.197
+    },
+    {
+      "id": "how-it-works",
+      "title": "How it works",
+      "start": 15.7,
+      "end": 25.02,
+      "narration_s": 8.818
+    },
+    {
+      "id": "overview",
+      "title": "Overview dashboard",
+      "start": 25.02,
+      "end": 32.02,
+      "narration_s": 6.061
+    },
+    {
+      "id": "scan",
+      "title": "Deep scan a suspicious URL",
+      "start": 32.02,
+      "end": 42.03,
+      "narration_s": 7.663
+    },
+    {
+      "id": "verdict",
+      "title": "Verdict: phishing",
+      "start": 42.03,
+      "end": 49.07,
+      "narration_s": 6.537
+    },
+    {
+      "id": "explain",
+      "title": "Explainable result",
+      "start": 49.07,
+      "end": 56.07,
+      "narration_s": 6.214
+    },
+    {
+      "id": "ml-brand",
+      "title": "ML Explanation & Brand",
+      "start": 56.07,
+      "end": 64.3,
+      "narration_s": 7.734
+    },
+    {
+      "id": "live-checks",
+      "title": "Live checks on a real phishing kit",
+      "start": 64.3,
+      "end": 72.3,
+      "narration_s": 7.303
+    },
+    {
+      "id": "reputation-content",
+      "title": "Reputation & content",
+      "start": 72.31,
+      "end": 79.91,
+      "narration_s": 7.106
+    },
+    {
+      "id": "resources-source-graph",
+      "title": "Resources, source & graph",
+      "start": 79.91,
+      "end": 88.47,
+      "narration_s": 8.058
+    },
+    {
+      "id": "legit",
+      "title": "A legitimate site: github.com",
+      "start": 88.47,
+      "end": 95.94,
+      "narration_s": 6.965
+    },
+    {
+      "id": "history-bulk",
+      "title": "History & bulk scanning",
+      "start": 95.94,
+      "end": 103.94,
+      "narration_s": 6.824
+    },
+    {
+      "id": "analytics",
+      "title": "Analytics",
+      "start": 103.94,
+      "end": 111.18,
+      "narration_s": 6.738
+    },
+    {
+      "id": "model-lab",
+      "title": "Model Lab: why Random Forest",
+      "start": 111.18,
+      "end": 123.18,
+      "narration_s": 11.332
+    },
+    {
+      "id": "graph-watchlist-typosquat",
+      "title": "Graph, Watchlist & Typosquat",
+      "start": 123.18,
+      "end": 132.39,
+      "narration_s": 8.708
+    },
+    {
+      "id": "community-feeds",
+      "title": "Community & threat feeds",
+      "start": 132.4,
+      "end": 139.7,
+      "narration_s": 6.803
+    },
+    {
+      "id": "alerts-activity-settings",
+      "title": "Alerts, activity log & settings",
+      "start": 139.7,
+      "end": 148.02,
+      "narration_s": 7.815
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "start": 148.02,
+      "end": 155.66,
+      "narration_s": 7.143
+    },
+    {
+      "id": "closing",
+      "title": "Thank you",
+      "start": 155.67,
+      "end": 163.67,
+      "narration_s": 5.873
+    }
+  ]
+}

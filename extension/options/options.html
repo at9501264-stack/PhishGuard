@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PhishGuard Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img src="../icons/icon48.png" alt="" width="28" height="28">
+      <h1>PhishGuard options</h1>
+    </header>
+
+    <form id="form">
+      <label class="field">
+        <span>Backend URL</span>
+        <input id="backendUrl" type="url" placeholder="http://localhost:8000" required>
+      </label>
+      <label class="field">
+        <span>Dashboard URL</span>
+        <input id="dashboardUrl" type="url" placeholder="http://localhost:5173" required>
+      </label>
+
+      <label class="toggle">
+        <input id="autoScan" type="checkbox">
+        <span><strong>Auto-scan pages</strong><br>
+          <small>Quick-scan every http(s) page when it finishes loading (results cached 30 min).</small></span>
+      </label>
+      <label class="toggle">
+        <input id="warningBanner" type="checkbox">
+        <span><strong>Show warning banner on phishing pages</strong><br>
+          <small>Injects a dismissible red banner. Requires permission to access all sites.</small></span>
+      </label>
+
+      <div class="actions">
+        <button type="submit">Save</button>
+        <button id="testBtn" type="button" class="secondary">Test connection</button>
+        <span id="msg" class="msg"></span>
+      </div>
+    </form>
+  </main>
+  <script src="../shared.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

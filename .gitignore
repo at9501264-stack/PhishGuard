@@ -1,0 +1,32 @@
+# --- dependencies / virtualenvs / build output
+node_modules/
+.venv/
+venv/
+frontend/dist/
+__pycache__/
+*.pyc
+
+# --- local runtime data (the cloud demo snapshot deploy/seed.db + deploy/feeds/*.gz IS committed)
+backend/data/phishguard.db
+backend/data/phishguard.db-*
+backend/data/screenshots/
+backend/data/tranco/top-1m.csv
+backend/data/feeds/*.tmp
+backend/ml/data/raw/
+deploy/*.building
+deploy/*.copying
+deploy/feeds/*.building
+
+# --- Vercel CLI link + local build output
+.vercel/
+
+# --- editors / OS / logs
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# --- secrets (`vercel link` writes .env.local with a VERCEL_OIDC_TOKEN)
+.vercel
+.env*
+!.env.example

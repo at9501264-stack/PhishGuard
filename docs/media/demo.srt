@@ -1,0 +1,215 @@
+1
+00:00:00,100 --> 00:00:03,201
+This is PhishGuard, an AI-based
+phishing website detection
+
+2
+00:00:03,251 --> 00:00:07,168
+and risk analysis system by Ayushi
+Tiwari, guided by Mr. Vishal Gupta.
+
+3
+00:00:08,101 --> 00:00:10,827
+Phishing sites copy trusted
+brands to steal passwords,
+
+4
+00:00:10,877 --> 00:00:13,140
+and many vanish before
+blocklists catch them.
+
+5
+00:00:13,190 --> 00:00:15,248
+PhishGuard explains the risk of any link.
+
+6
+00:00:15,802 --> 00:00:19,720
+Each URL becomes 44 features
+for a Random Forest model,
+
+7
+00:00:19,770 --> 00:00:24,570
+while live checks inspect DNS, WHOIS,
+SSL, content, brands and threat feeds.
+
+8
+00:00:25,122 --> 00:00:27,252
+The Overview dashboard shows total scans,
+
+9
+00:00:27,302 --> 00:00:31,133
+detection rate and average trust score,
+with trends and a live scan feed.
+
+10
+00:00:32,124 --> 00:00:34,759
+Let's deep scan a fake PayPal login link.
+
+11
+00:00:34,809 --> 00:00:39,737
+Eight stages run, from the ML prediction
+to DNS, WHOIS, SSL and reputation.
+
+12
+00:00:42,126 --> 00:00:45,134
+The verdict is phishing: risk 92 out of 100,
+
+13
+00:00:45,184 --> 00:00:48,613
+trust score 8, tier Untrusted,
+threat type social engineering.
+
+14
+00:00:49,165 --> 00:00:52,658
+Every verdict is explained: an AI
+summary, the factors behind it,
+
+15
+00:00:52,708 --> 00:00:55,329
+and a 60/40 split between model and checks.
+
+16
+00:00:56,167 --> 00:00:59,167
+ML Explanation shows the
+features behind the prediction,
+
+17
+00:00:59,217 --> 00:01:01,890
+like the long hostname,
+and all four models agree.
+
+18
+00:01:01,940 --> 00:01:03,851
+Brand confirms PayPal impersonation.
+
+19
+00:01:04,402 --> 00:01:08,456
+Next, a live phishing kit on
+vercel.app: WHOIS and DNS records,
+
+20
+00:01:08,506 --> 00:01:11,655
+a mismatched SSL certificate,
+and its redirect chain.
+
+21
+00:01:12,405 --> 00:01:15,275
+Reputation shows 3 of
+11 engines flagging it,
+
+22
+00:01:15,325 --> 00:01:17,368
+including OpenPhish and Phishing Army.
+
+23
+00:01:17,418 --> 00:01:19,461
+Content classifies it as a login page.
+
+24
+00:01:20,013 --> 00:01:23,220
+Resources lists contacted
+domains, Source keeps the HTML,
+
+25
+00:01:23,270 --> 00:01:28,021
+which hides code sending stolen data to
+Telegram, and Graph maps the infrastructure.
+
+26
+00:01:28,572 --> 00:01:31,768
+For contrast, github.com
+is legitimate: risk 3,
+
+27
+00:01:31,818 --> 00:01:35,487
+trust score 97, tier Trusted,
+and no engine flags it.
+
+28
+00:01:36,038 --> 00:01:40,574
+History keeps every scan with export and
+one-click pivots, like all Untrusted sites.
+
+29
+00:01:40,624 --> 00:01:42,812
+Bulk Scan checks up to 500 URLs.
+
+30
+00:01:44,042 --> 00:01:47,443
+Analytics shows scan trends, an
+activity heatmap, threat types,
+
+31
+00:01:47,493 --> 00:01:50,730
+trust tiers and a detection
+funnel from scanned to phishing.
+
+32
+00:01:51,282 --> 00:01:55,753
+The Model Lab compares four
+classifiers on 146,000 URLs.
+
+33
+00:01:55,803 --> 00:02:00,446
+Random Forest wins on F1, with 86%
+accuracy even on unseen domains,
+
+34
+00:02:00,496 --> 00:02:02,564
+and an AUC of 0.94.
+
+35
+00:02:03,283 --> 00:02:07,341
+The Relationship graph links domains
+by shared IP addresses and registrars.
+
+36
+00:02:07,391 --> 00:02:09,531
+Watchlist re-checks sites automatically,
+
+37
+00:02:09,581 --> 00:02:11,941
+and Typosquat finds live PayPal look-alikes.
+
+38
+00:02:12,495 --> 00:02:15,405
+Community reports work like
+PhishTank, with crowd voting,
+
+39
+00:02:15,455 --> 00:02:19,248
+and Threat Feeds holds
+657,000 blocklist entries.
+
+40
+00:02:19,802 --> 00:02:23,859
+Alerts flag high-risk detections, the
+Activity log records every action,
+
+41
+00:02:23,909 --> 00:02:27,567
+Settings tunes the thresholds,
+and a REST API exposes everything.
+
+42
+00:02:28,120 --> 00:02:31,199
+Under the hood: a React
+dashboard, a FastAPI backend
+
+43
+00:02:31,249 --> 00:02:35,213
+with the model and analysis engine,
+and SQLite storage, on Vercel.
+
+44
+00:02:35,767 --> 00:02:38,760
+PhishGuard turns any link into
+an explainable risk score.
+
+45
+00:02:38,810 --> 00:02:41,056
+The live demo and code links are on screen.
+
+46
+00:02:41,106 --> 00:02:41,590
+Thank you.

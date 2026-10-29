@@ -1,0 +1,27 @@
+# PhishGuard - runtime dependencies for the Vercel Python Function (api/index.py -> deploy/cloud_app.py).
+# Cloud/demo-mode only. Local development keeps using backend/requirements.txt + backend/.venv.
+#
+# Rules: runtime packages only (no playwright / uvloop / httptools / uvicorn - Vercel brings its own ASGI
+# server, browser capture is off in the cloud). Versions are pinned to what backend/.venv used to train the
+# models in backend/ml/artifacts: joblib/scikit-learn pickles must be loaded by the same scikit-learn version.
+# Re-check with:  backend/.venv/bin/python deploy/preflight.py
+fastapi==0.162.0
+pydantic==2.14.1
+python-multipart==0.0.32
+httpx==0.28.1
+httpcore==1.0.9
+dnspython==2.9.0
+python-whois==0.9.6
+tldextract==5.4.0
+beautifulsoup4==4.15.0
+# ML (backend/ml/predictor.py); pandas is imported by predictor._as_input for DataFrame-fitted artifacts
+scikit-learn==1.9.1
+scipy==1.18.1
+numpy==2.5.4
+pandas==3.1.0
+joblib==1.6.0
+# v2 engine extras (SPEC_V2 mini-project scope): mmh3 = Tranco index hashing (app/analysis/popularity.py),
+# langdetect = page language (content.language). Pillow is NOT listed: favicon hashing was cut from the scope;
+# add "pillow==13.0.0" back if backend code starts importing PIL (deploy/preflight.py reports it).
+mmh3==5.3.1
+langdetect==1.0.9

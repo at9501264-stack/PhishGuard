@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PhishGuard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="22" height="22">
+    <h1>PhishGuard</h1>
+    <a id="optionsLink" href="#" title="Options">Options</a>
+  </header>
+
+  <section class="card">
+    <div class="label">Current page</div>
+    <div id="url" class="url">-</div>
+    <button id="scanBtn" type="button">Scan this page</button>
+  </section>
+
+  <section id="status" class="status" hidden></section>
+
+  <section id="result" class="card" hidden>
+    <div class="row">
+      <span id="verdict" class="pill">-</span>
+      <span class="muted">confidence <span id="confidence">-</span></span>
+    </div>
+    <div class="score">
+      <span id="score" class="score-num">0</span><span class="muted">/100 risk</span>
+    </div>
+    <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+
+    <div id="brandRow" class="brand" hidden>
+      Impersonating <strong id="brand"></strong>
+    </div>
+
+    <div class="label">Top failed checks</div>
+    <ul id="checks" class="checks"></ul>
+
+    <a id="reportLink" class="report" href="#" target="_blank" rel="noopener">Open full report &rarr;</a>
+  </section>
+
+  <script src="../shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

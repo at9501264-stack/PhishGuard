@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci --prefix frontend --no-audit --no-fund",
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/dist",
+  "regions": ["bom1"],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 300,
+      "excludeFiles": "{frontend/**,extension/**,docs/**,scripts/**,backend/ml/data/**,backend/data/phishguard.db*,backend/data/screenshots/**,backend/data/tranco/top-1m.csv,deploy/*.building,**/*.log,**/.DS_Store}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index" },
+    { "source": "/docs", "destination": "/api/index" },
+    { "source": "/docs/:path*", "destination": "/api/index" },
+    { "source": "/redoc", "destination": "/api/index" },
+    { "source": "/openapi.json", "destination": "/api/index" },
+    { "source": "/screenshots/:path*", "destination": "/api/index" },
+    { "source": "/static/:path*", "destination": "/api/index" },
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ],
+  "crons": [{ "path": "/api/_cron", "schedule": "30 2 * * *" }]
+}

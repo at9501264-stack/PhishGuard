@@ -1,0 +1,244 @@
+{
+ "feeds": {
+  "OpenPhish": {
+   "status": "ok",
+   "source_used": "https://openphish.com/feed.txt",
+   "entries": 300,
+   "last_updated": "2026-10-24T17:30:30Z",
+   "error": null,
+   "last_attempt": "2026-10-24T17:30:30Z"
+  },
+  "URLhaus": {
+   "status": "ok",
+   "source_used": "https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-online.txt",
+   "entries": 55475,
+   "last_updated": "2026-10-24T17:30:32Z",
+   "error": "https://urlhaus.abuse.ch/downloads/text_online/: HTTP 410",
+   "last_attempt": "2026-10-24T17:30:32Z"
+  },
+  "Phishing.Database": {
+   "status": "ok",
+   "source_used": "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-domains-ACTIVE.txt",
+   "entries": 392174,
+   "last_updated": "2026-10-24T17:30:31Z",
+   "error": "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-links-ACTIVE-today.txt: empty feed",
+   "last_attempt": "2026-10-24T17:30:32Z"
+  },
+  "PhishTank": {
+   "status": "ok",
+   "source_used": "http://data.phishtank.com/data/online-valid.csv",
+   "entries": 57062,
+   "last_updated": "2026-10-24T17:30:33Z",
+   "error": null,
+   "last_attempt": "2026-10-24T17:30:33Z"
+  },
+  "Phishing Army": {
+   "status": "ok",
+   "source_used": "https://phishing.army/download/phishing_army_blocklist.txt",
+   "entries": 154182,
+   "last_updated": "2026-10-24T17:30:31Z",
+   "error": null,
+   "last_attempt": "2026-10-24T17:30:33Z"
+  }
+ },
+ "stats": {
+  "total_entries": 657124,
+  "unique_hosts": 545101,
+  "by_feed": {
+   "OpenPhish": 300,
+   "URLhaus": 55471,
+   "Phishing.Database": 390860,
+   "PhishTank": 57062,
+   "Phishing Army": 153431
+  },
+  "top_domains_tlds": [
+   {
+    "name": "com",
+    "value": 190971
+   },
+   {
+    "name": "dev",
+    "value": 26774
+   },
+   {
+    "name": "app",
+    "value": 26446
+   },
+   {
+    "name": "io",
+    "value": 25357
+   },
+   {
+    "name": "org",
+    "value": 23888
+   },
+   {
+    "name": "shop",
+    "value": 18300
+   },
+   {
+    "name": "net",
+    "value": 14922
+   },
+   {
+    "name": "top",
+    "value": 11045
+   },
+   {
+    "name": "site",
+    "value": 9327
+   },
+   {
+    "name": "xyz",
+    "value": 8791
+   },
+   {
+    "name": "sbs",
+    "value": 8550
+   },
+   {
+    "name": "cyou",
+    "value": 6957
+   },
+   {
+    "name": "link",
+    "value": 6848
+   },
+   {
+    "name": "ru",
+    "value": 6767
+   },
+   {
+    "name": "(ip)",
+    "value": 6734
+   }
+  ],
+  "top_registered_domains": [
+   {
+    "name": "duckdns.org",
+    "value": 16990
+   },
+   {
+    "name": "pages.dev",
+    "value": 14596
+   },
+   {
+    "name": "appspot.com",
+    "value": 12981
+   },
+   {
+    "name": "webflow.io",
+    "value": 11974
+   },
+   {
+    "name": "vercel.app",
+    "value": 11578
+   },
+   {
+    "name": "weeblysite.com",
+    "value": 9556
+   },
+   {
+    "name": "weebly.com",
+    "value": 9238
+   },
+   {
+    "name": "github.io",
+    "value": 7738
+   },
+   {
+    "name": "000webhostapp.com",
+    "value": 7729
+   },
+   {
+    "name": "r2.dev",
+    "value": 6487
+   },
+   {
+    "name": "web.app",
+    "value": 6315
+   },
+   {
+    "name": "netlify.app",
+    "value": 4335
+   },
+   {
+    "name": "workers.dev",
+    "value": 4171
+   },
+   {
+    "name": "firebaseapp.com",
+    "value": 4036
+   },
+   {
+    "name": "glitch.me",
+    "value": 3992
+   }
+  ],
+  "top_targets": [
+   {
+    "name": "Facebook",
+    "value": 3677
+   },
+   {
+    "name": "MetaMask",
+    "value": 2845
+   },
+   {
+    "name": "AT&T",
+    "value": 2402
+   },
+   {
+    "name": "Allegro",
+    "value": 2398
+   },
+   {
+    "name": "Roblox",
+    "value": 2086
+   },
+   {
+    "name": "WhatsApp",
+    "value": 1971
+   },
+   {
+    "name": "Microsoft",
+    "value": 1944
+   },
+   {
+    "name": "Apple",
+    "value": 1881
+   },
+   {
+    "name": "Instagram",
+    "value": 1775
+   },
+   {
+    "name": "Amazon",
+    "value": 1707
+   },
+   {
+    "name": "Meta",
+    "value": 1328
+   },
+   {
+    "name": "Ledger",
+    "value": 1011
+   },
+   {
+    "name": "Internal Revenue Service",
+    "value": 793
+   },
+   {
+    "name": "Webmail / cPanel",
+    "value": 695
+   },
+   {
+    "name": "Office 365",
+    "value": 695
+   }
+  ],
+  "computed_at": "2026-10-24T17:30:40Z",
+  "targets_estimated": true
+ },
+ "updated_at": "2026-10-24T17:30:35Z"
+}

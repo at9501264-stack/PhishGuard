@@ -1,0 +1,296 @@
+[
+  {
+    "file": "01-overview.png",
+    "title": "Overview dashboard",
+    "section": "Dashboard",
+    "explanation": "The landing page summarises detection activity for the selected time range: total, phishing and legitimate scans, detection rate, average trust and risk scores, blacklist hits and impersonated brands. Charts of scans over time, the verdict split, the risk-score distribution, top impersonated brands and hosting countries sit next to a live scan feed, model health and recent alerts, so the current phishing picture is visible at a glance."
+  },
+  {
+    "file": "02-scan-url.png",
+    "title": "Scan a single URL",
+    "section": "Scanning",
+    "explanation": "The Scan page takes one URL and runs the full analysis pipeline. The Deep scan toggle adds live DNS, WHOIS, SSL, HTTP and page-content checks on top of the instant lexical and ML analysis, and the example links let a reviewer try a legitimate site, a typosquatted PayPal URL and a raw-IP banking page in one click."
+  },
+  {
+    "file": "03-scan-email-sms.png",
+    "title": "Extract URLs from an email or SMS",
+    "section": "Scanning",
+    "explanation": "A suspicious email or SMS is pasted as text and PhishGuard extracts every link in it, including defanged forms such as hxxp:// and [.]. The extracted URLs can be ticked and scanned in one go, which matches how phishing really arrives: inside messages rather than as bare links."
+  },
+  {
+    "file": "04-scan-qr.png",
+    "title": "Scan a QR code (quishing)",
+    "section": "Scanning",
+    "explanation": "A QR-code image is decoded locally in the browser with jsQR, so the image is never uploaded, and the embedded URL is shown before anything is opened. One click then scans the decoded link, which protects against QR-code phishing on posters, invoices and parcel notices."
+  },
+  {
+    "file": "05-scan-progress.png",
+    "title": "Scan in progress",
+    "section": "Scanning",
+    "explanation": "While a deep scan runs, the analysis-pipeline card ticks off each stage: lexical analysis, ML prediction, DNS, WHOIS, SSL/TLS, HTTP and content, brand impersonation and reputation. It makes the multi-signal design visible and tells the user what is being checked before the report opens."
+  },
+  {
+    "file": "06-report-summary.png",
+    "title": "Report: summary, AI summary and factors",
+    "section": "Scan report",
+    "explanation": "The report header shows the 0-100 risk gauge, verdict, trust score and tier, threat type, engines flagged, ML probability and scan duration for a live phishing kit hosted on vercel.app. The Summary tab adds a plain-English AI summary, the negative and positive factors behind the score, the score breakdown (60% ML + 40% heuristics) and every security check, so the verdict can be explained instead of being a black box."
+  },
+  {
+    "file": "07-report-ml-explanation.png",
+    "title": "Report: ML explanation",
+    "section": "Scan report",
+    "explanation": "The ML Explanation tab shows the primary model (Random Forest), its phishing probability and how many of the four classifiers agree. Signed feature contributions show which URL properties pushed the prediction towards phishing or safe, and the table lists every lexical feature extracted from the URL."
+  },
+  {
+    "file": "08-report-domain-whois.png",
+    "title": "Report: domain and WHOIS",
+    "section": "Scan report",
+    "explanation": "The Domain tab splits the hostname into subdomain, registered domain and TLD and shows WHOIS data (registrar, created, updated and expiry dates) and DNS records. Domain age is a strong phishing signal; here the registered domain is old because the kit sits on a free hosting platform, which the subdomain and hosting checks expose."
+  },
+  {
+    "file": "09-report-geo-hosting.png",
+    "title": "Report: geo and hosting",
+    "section": "Scan report",
+    "explanation": "Geo & Hosting resolves the server IP to its country, city, ASN, organisation and ISP, flags hosting/datacenter networks and pins the location on an OpenStreetMap map. This helps to spot phishing pages on cheap hosting and to group sites that share infrastructure."
+  },
+  {
+    "file": "10-report-ssl.png",
+    "title": "Report: SSL certificate",
+    "section": "Scan report",
+    "explanation": "The SSL tab shows the certificate issuer, subject, protocol, validity window, days left and SANs, and explains why validation failed (here a hostname mismatch). Free, short-lived or mismatched certificates are common on phishing sites, so the certificate feeds into the heuristic score."
+  },
+  {
+    "file": "11-report-http.png",
+    "title": "Report: HTTP analysis",
+    "section": "Scan report",
+    "explanation": "The HTTP tab follows the redirect chain hop by hop, shows the response details and which of six security headers are present, and detects technologies and suspicious JavaScript (obfuscated eval, exfiltration to a Telegram bot, visitor geo-lookup). The page-content counters (forms, password fields, external scripts) reveal a credential-harvesting login form."
+  },
+  {
+    "file": "12-report-brand.png",
+    "title": "Report: brand impersonation",
+    "section": "Scan report",
+    "explanation": "For a scan that impersonates MetaMask, the Brand tab names the targeted brand, the technique (the brand used as a subdomain of an unrelated vercel.app domain) and the similarity to the genuine brand domain. The table explains the tricks attackers use to look legitimate: typosquats, homoglyphs, combosquats, punycode, brand in the path or in the page content."
+  },
+  {
+    "file": "13-report-reputation.png",
+    "title": "Report: reputation and detection engines",
+    "section": "Scan report",
+    "explanation": "The Reputation tab lists every detection engine with its type and result: five local threat feeds (OpenPhish, URLhaus, Phishing.Database, PhishTank, Phishing Army), five DNS blocklists and the PhishGuard ML engine. It also shows which blacklists contain the URL and the community verdict with its votes, so the ML score is cross-checked against independent sources."
+  },
+  {
+    "file": "14-report-content.png",
+    "title": "Report: page content",
+    "section": "Scan report",
+    "explanation": "The Content tab classifies the live page (here a login page with 95% confidence), detects its language and checks whether the domain is parked. Category scores and the tracker list explain what the page is trying to do, for example harvesting webmail credentials."
+  },
+  {
+    "file": "15-report-resources.png",
+    "title": "Report: resources",
+    "section": "Scan report",
+    "explanation": "The Resources tab counts every script, style, image, frame and form the page loads and the domains it contacts. A login page that pulls all of its resources from third-party domains is typical of a copied phishing kit."
+  },
+  {
+    "file": "16-report-source.png",
+    "title": "Report: page source",
+    "section": "Scan report",
+    "explanation": "The Source tab shows the stored HTML as plain text with line numbers, search, wrapping and copy; the page is never rendered. The phishing kit's markup and scripts can be inspected safely without visiting the live site."
+  },
+  {
+    "file": "17-report-graph.png",
+    "title": "Report: relationship graph",
+    "section": "Scan report",
+    "explanation": "The Graph tab draws the infrastructure around the scanned domain up to two hops: its URL, IP address, ASN, name servers, registrar, country and the other scanned domains that share them. Shared infrastructure links a single phishing site to related campaigns."
+  },
+  {
+    "file": "18-report-timeline.png",
+    "title": "Report: timeline",
+    "section": "Scan report",
+    "explanation": "The Timeline tab lists the events recorded for this scan and its domain (scans, community reports, watchlist runs and alerts), each with expandable details. It shows how a phishing site was detected, reported and monitored over time."
+  },
+  {
+    "file": "19-report-legitimate.png",
+    "title": "Report: legitimate (Trusted) site",
+    "section": "Scan report",
+    "explanation": "For https://github.com the gauge shows risk 3/100, tier Trusted, 0 of 11 engines flagged and a 4.3% ML phishing probability. The AI summary and the positive factors (official domain, valid certificate, not on any feed) show that safe verdicts are explained as clearly as phishing ones, which keeps false positives understandable."
+  },
+  {
+    "file": "20-history-pivot-filters.png",
+    "title": "History with pivot filters",
+    "section": "History & bulk",
+    "explanation": "Scan history combines search, verdict, source, TLD, risk-range and date filters with advanced pivots (IP, ASN, registrar, content category, threat type, trust tier). Active filters appear as removable chips and are kept in the URL, so a view such as 'all untrusted social-engineering scans' can be shared or exported to CSV/JSON."
+  },
+  {
+    "file": "21-bulk-scan.png",
+    "title": "Bulk scan",
+    "section": "History & bulk",
+    "explanation": "Up to 500 URLs are pasted or uploaded as a CSV/TXT file; duplicates are removed and the job runs in the background. The jobs table tracks the progress and verdict split of every job."
+  },
+  {
+    "file": "22-bulk-job-detail.png",
+    "title": "Bulk job results",
+    "section": "History & bulk",
+    "explanation": "A finished bulk job shows its progress, the verdict distribution and every URL with its verdict, risk score, impersonated brand, blacklist status and scan time, with CSV/JSON export. A list of reported links can be triaged in one pass, and phishing URLs that are on no blacklist yet are still caught by the model."
+  },
+  {
+    "file": "23-analytics-trends.png",
+    "title": "Analytics: trends and activity heatmap",
+    "section": "Analytics",
+    "explanation": "Scans over time are stacked by verdict next to the average risk trend, and the heatmap shows scan activity by weekday and hour (UTC). Together they show when phishing activity peaks and whether risk is rising."
+  },
+  {
+    "file": "24-analytics-distributions.png",
+    "title": "Analytics: distributions",
+    "section": "Analytics",
+    "explanation": "Charts break the scans down by top-level domain, scan source (web, bulk, extension, API, watch, text, QR), impersonation technique, SSL status, domain age and the checks that fail most often. They show which signals separate phishing from legitimate sites in the collected data."
+  },
+  {
+    "file": "25-analytics-threat-insights.png",
+    "title": "Analytics: threat insights",
+    "section": "Analytics",
+    "explanation": "Threat types (Safe Browsing-style), reputation tiers and content categories summarise what kind of threats were found. Clicking a slice or bar opens the matching scans in History."
+  },
+  {
+    "file": "26-analytics-funnel.png",
+    "title": "Analytics: detection funnel",
+    "section": "Analytics",
+    "explanation": "The funnel shows how many scans pass each detection stage: scanned, reachable, login/password form, brand impersonation, listed in a feed and phishing verdict. It shows how the individual signals narrow down to the final phishing verdicts."
+  },
+  {
+    "file": "27-analytics-performance.png",
+    "title": "Analytics: performance",
+    "section": "Analytics",
+    "explanation": "P50, P95, P99 and maximum scan latency, the error count, hourly throughput and per-check error rates measure how fast and reliable the analysis engine is. The median deep scan, with all network checks, finishes in under two seconds."
+  },
+  {
+    "file": "28-model-lab-comparison.png",
+    "title": "Model Lab: dataset and model comparison",
+    "section": "Machine learning",
+    "explanation": "The Model Lab shows the training dataset (146,364 URLs from PhiUSIIL, PhishTank, Phishing.Database, OpenPhish and Tranco, balanced 50/50), live prediction statistics and a comparison of Logistic Regression, Decision Tree, Random Forest and SVM on accuracy, precision, recall, F1, ROC-AUC, 5-fold cross-validation and timing. Random Forest has the best F1 (85.6%) and ROC-AUC (0.945) and is used for scoring."
+  },
+  {
+    "file": "29-model-lab-realistic-evaluation.png",
+    "title": "Model Lab: realistic evaluation",
+    "section": "Machine learning",
+    "explanation": "Besides the stratified test split, every model is evaluated on 4,000 held-out URLs from campaigns and domains never seen in training (PhishTank and Phishing.Database phishing, Tranco deep links). F1, precision, recall, HTTPS recall and false-positive rate on this set give an honest estimate of real-world accuracy, and the composition card shows where the training URLs came from."
+  },
+  {
+    "file": "30-model-lab-roc-pr.png",
+    "title": "Model Lab: ROC and precision-recall curves",
+    "section": "Machine learning",
+    "explanation": "ROC and precision-recall curves of the four classifiers on the test split, with the best model drawn thicker. They show the trade-off between catching phishing and raising false alarms at every threshold."
+  },
+  {
+    "file": "31-model-lab-confusion-matrices.png",
+    "title": "Model Lab: confusion matrices",
+    "section": "Machine learning",
+    "explanation": "One confusion matrix per model counts true/false positives and negatives on the 29,272-URL test split. Missed phishing (false negatives) and blocked legitimate sites (false positives) are the two errors that matter in practice."
+  },
+  {
+    "file": "32-model-lab-feature-importance.png",
+    "title": "Model Lab: feature importance",
+    "section": "Machine learning",
+    "explanation": "The top 20 Random Forest features and the mean of each feature in phishing vs legitimate samples explain what the model learned. Subdomain length, free-hosting platforms and hostname length matter most, and phishing hostnames are much longer on average (25.3 vs 16.5 characters)."
+  },
+  {
+    "file": "33-domain-intelligence.png",
+    "title": "Domain intelligence",
+    "section": "Investigation",
+    "explanation": "The Domain page aggregates every scan of one domain: scan count, average risk, latest verdict, first and last seen, a risk trend and the latest IP, hosting, registrar, domain age and SSL issuer. From here the domain can be watched, re-scanned or checked for typosquats."
+  },
+  {
+    "file": "34-graph-node-selected.png",
+    "title": "Relationship graph with a node selected",
+    "section": "Investigation",
+    "explanation": "The Graph page links scanned domains through shared IPs, ASNs, name servers, registrars, brands and redirects, here centred on a MetaMask phishing domain at depth 2. Selecting the domain highlights its neighbours and opens a side panel with its verdict, risk, connections and pivots, which helps to uncover campaigns that reuse the same infrastructure."
+  },
+  {
+    "file": "35-typosquat-paypal.png",
+    "title": "Typosquat finder (paypal.com)",
+    "section": "Investigation",
+    "explanation": "dnstwist-style permutations of paypal.com (omission, transposition, homoglyph, TLD swap, dictionary words and more, 13 techniques) are generated and checked in DNS. Here 50 of the 60 checked lookalikes resolve, each with its IP and a one-click scan, which shows how many domains could be used to impersonate a single brand."
+  },
+  {
+    "file": "36-watchlist.png",
+    "title": "Watchlist",
+    "section": "Monitoring",
+    "explanation": "URLs and domains are re-checked automatically on an interval; each target shows its last verdict, risk, change and alert count, and brand domains can also be monitored for newly resolving typosquats. A verdict change or a new lookalike raises an alert."
+  },
+  {
+    "file": "37-watchlist-history.png",
+    "title": "Watchlist history",
+    "section": "Monitoring",
+    "explanation": "The history drawer of a monitored target charts its risk over time against the suspicious (35) and phishing (65) thresholds and lists every check with a link to its report. For a brand domain such as paypal.com it also lists the resolving typosquats, the lookalikes most likely to be used against that brand."
+  },
+  {
+    "file": "38-alerts.png",
+    "title": "Alerts",
+    "section": "Monitoring",
+    "explanation": "Alerts are raised by high-risk scans, watchlist changes, typosquat baselines and community verification, with severity filters and read/unread state. Each alert links to the scan or watchlist entry that caused it."
+  },
+  {
+    "file": "39-community.png",
+    "title": "Community reports",
+    "section": "Community & intel",
+    "explanation": "Anyone can report a suspicious URL with a label, targeted brand and comment; reports are verified PhishTank-style at +3 net phishing votes and rejected at -3. The Pending, Verified and Rejected tabs show the reporter, status and votes, and a verified report raises the risk score of that URL."
+  },
+  {
+    "file": "40-threat-feeds.png",
+    "title": "Threat feeds",
+    "section": "Community & intel",
+    "explanation": "PhishGuard keeps local copies of five public blocklists (OpenPhish, URLhaus, Phishing.Database, PhishTank and Phishing Army, about 657,000 entries) that can be refreshed on demand. Charts show the entries per feed, top TLDs and most targeted brands, and any URL, domain or brand can be searched across all feeds."
+  },
+  {
+    "file": "41-activity-log.png",
+    "title": "Activity log",
+    "section": "Tracking & settings",
+    "explanation": "The activity log is an audit trail of scans, alerts, watchlist runs, community reports, votes, bulk jobs, typosquat searches and settings changes, filterable by event type and with expandable details. It makes every action of the system traceable."
+  },
+  {
+    "file": "42-settings.png",
+    "title": "Settings",
+    "section": "Tracking & settings",
+    "explanation": "Verdict thresholds (35 suspicious, 65 phishing) are set with sliders and a live preview; other options switch network checks and page screenshots, set the check timeout and data retention and store optional VirusTotal / Google Safe Browsing keys. The About section names the project, student, guide and institute and shows the seven-step system workflow."
+  },
+  {
+    "file": "43-api-guide.png",
+    "title": "API guide",
+    "section": "Tracking & settings",
+    "explanation": "The API guide lists the REST endpoints with copy-paste curl examples for scanning, history, export, bulk jobs, URL extraction, typosquats, community reports and the watchlist. Any tool or script can use the same engine as the dashboard, for example to check links from a mail gateway."
+  },
+  {
+    "file": "44-swagger-docs.png",
+    "title": "Swagger / OpenAPI docs",
+    "section": "Tracking & settings",
+    "explanation": "FastAPI serves interactive OpenAPI documentation at /docs, where every endpoint can be tried from the browser. The description documents the scoring formula: risk = 0.6 x ML probability x 100 + 0.4 x heuristic score, raised on a blacklist hit or a verified community report."
+  },
+  {
+    "file": "45-dark-overview.png",
+    "title": "Dark mode: overview",
+    "section": "Responsive & themes",
+    "explanation": "Every page has a dark theme (light, dark or follow the system). Cards, charts and tables keep their contrast, which suits long analysis sessions."
+  },
+  {
+    "file": "46-dark-report.png",
+    "title": "Dark mode: scan report",
+    "section": "Responsive & themes",
+    "explanation": "The phishing report in dark mode keeps the risk gauge, verdict chips, tabs and AI summary readable. The colour coding is the same as in the light theme, so red still means danger."
+  },
+  {
+    "file": "47-dark-analytics.png",
+    "title": "Dark mode: analytics",
+    "section": "Responsive & themes",
+    "explanation": "Analytics in dark mode re-colours the stacked scans-over-time chart, the average risk trend and the activity heatmap for a dark background. Verdict colours stay consistent across both themes."
+  },
+  {
+    "file": "48-mobile-overview.png",
+    "title": "Mobile: overview",
+    "section": "Responsive & themes",
+    "explanation": "On a 390 px phone screen the sidebar collapses into a menu and the KPI cards stack in two columns. The dashboard stays usable on small screens without horizontal scrolling."
+  },
+  {
+    "file": "49-mobile-report.png",
+    "title": "Mobile: scan report",
+    "section": "Responsive & themes",
+    "explanation": "On a phone the report's action buttons wrap and the risk gauge, verdict and key numbers stack vertically. A suspicious link received by SMS can be checked on the same device."
+  }
+]
